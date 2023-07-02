@@ -20,7 +20,7 @@ export const USER_API_ROUTES = {
 
 export const AUTH_API_ROUTES = {
 	AUTH_REGISTER: '/register',
-	AUTH_LOGIN: 'auth/login',
+	AUTH_LOGIN: '/login',
 }
 
 export const BLOG_API_ROUTES = {

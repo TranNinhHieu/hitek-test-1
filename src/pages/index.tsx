@@ -1,14 +1,16 @@
 import BaseLayout from '@/layouts/BaseLayout'
+import { userStore } from '@/store/state'
 import { ListData } from '@/utils/mockData'
 import { Col, Divider, List, Row } from 'antd'
+import { useEffect } from 'react'
+import { useRecoilValue } from 'recoil'
 // import classes from './style.module.scss'
-import axios from 'src/axios'
+// import axios from 'src/axios'
 export default function Home() {
-	const a = async () => {
-		const res = await axios.get('/users')
-		console.log('res', res)
-	}
-	a()
+	const user = useRecoilValue(userStore)
+	useEffect(() => {
+		console.log(user)
+	})
 	return (
 		<BaseLayout>
 			<Row gutter={16}>
