@@ -2,9 +2,9 @@
 import { userStore } from '@/store/state'
 import { BaseLayoutProps } from '@/types/layouts'
 import { MenuData } from '@/utils/mockData'
-import { ROUTES } from '@/utils/routers'
+// import { ROUTES } from '@/utils/routers'
 import { Breadcrumb, Layout, Menu } from 'antd'
-import Link from 'next/link'
+// import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import classes from './index.module.scss'
@@ -21,33 +21,23 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
 		setMenuState(
 			userState?.id
 				? renderMenu &&
-						renderMenu.concat(
-							{
-								label: <Link href={ROUTES.PROFILE}>{userState.last_name}</Link>,
-								key: 'info',
-							},
-							{
-								label: (
-									<span
-										onClick={() => {
-											setUserState({
-												id: '',
-												first_name: '',
-												last_name: '',
-												is_admin: '',
-												phone: '',
-												email: '',
-												username: '',
-												token: '',
-											})
-										}}
-									>
-										Logout
-									</span>
-								),
-								key: 'logout',
-							},
-						)
+						renderMenu.concat({
+							label: (
+								<span
+									onClick={() => {
+										setUserState({
+											id: '',
+											type: '',
+											userName: '',
+											token: '',
+										})
+									}}
+								>
+									Logout
+								</span>
+							),
+							key: 'logout',
+						})
 				: MenuData,
 		)
 	}, [userState])

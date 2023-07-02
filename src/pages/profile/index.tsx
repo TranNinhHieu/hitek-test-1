@@ -8,10 +8,10 @@ export default function ProfilePage() {
 	return (
 		<AuthLayout>
 			<div>{userState.id}</div>
-			<div>{userState.first_name}</div>
+			{/* <div>{userState.first_name}</div>
 			<div>{userState.last_name}</div>
 			<div>{userState.email}</div>
-			<div>{userState.phone}</div>
+			<div>{userState.phone}</div> */}
 		</AuthLayout>
 	)
 }
