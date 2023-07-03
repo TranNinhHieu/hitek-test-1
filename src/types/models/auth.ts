@@ -15,3 +15,10 @@ export type AuthResponse = {
 		accessToken: string
 	}
 }
+
+export type RegisterModel = {
+	password: string
+	type: string
+	userName: string
+	confirmPassword: string
+}
