@@ -7,8 +7,11 @@ import { login } from '@/api/AuthAPI'
 import { userStore } from '@/store/state'
 import { useSetRecoilState } from 'recoil'
 import { toast } from 'react-toastify'
-
+import { useRouter } from 'next/router'
+import { ROUTES } from '@/utils/routers'
+import { CONSTANTS } from '@/utils/constant'
 function Login() {
+	const router = useRouter()
 	const setUser = useSetRecoilState(userStore)
 	const {
 		register,
@@ -19,24 +22,24 @@ function Login() {
 		try {
 			const res = await login(data)
 			if (res) {
-				console.log(res)
-				// const userInfo = res
-				// delete userInfo.status
 				setUser(res)
 				toast.success('Login successful')
 			}
 		} catch (error: any) {
-			alert(error?.message)
+			alert(error?.message || 'Errors')
 		}
 	}
-
 	return (
 		<div className={classes.wrapper}>
 			<div className={classes.container}>
 				<Stack className={classes.leftContainer} spacing={2}>
 					<div className={classes.title}>HELLO MY FRIEND</div>
 					<div>Welcome to my project</div>
-					<Button className={classes.buttonToSignUp} color="inherit">
+					<Button
+						className={classes.buttonToSignUp}
+						color="inherit"
+						onClick={() => router.push(`${ROUTES.SIGNUP}`)}
+					>
 						Sign Up
 					</Button>
 				</Stack>
@@ -52,16 +55,28 @@ function Login() {
 								className={classes.inputUser}
 								type="text"
 								{...register('userName', { required: true })}
+								pattern={CONSTANTS.PATTERN}
+								title={CONSTANTS.TITLE}
 							/>
-							{errors.userName && <Error />}
+							{errors.userName && (
+								<Error
+									content={`${CONSTANTS.PREFIXERROR} ${errors.userName.type}`}
+								/>
+							)}
 							<div>Password</div>
 
 							<input
 								className={classes.inputPassword}
 								type="password"
 								{...register('password', { required: true })}
+								pattern={CONSTANTS.PATTERN}
+								title={CONSTANTS.TITLE}
 							/>
-							{errors.password && <Error />}
+							{errors.password && (
+								<Error
+									content={`${CONSTANTS.PREFIXERROR} ${errors.password.type}`}
+								/>
+							)}
 							<Button
 								className={classes.buttonSignIn}
 								style={{ color: 'white' }}

@@ -14,7 +14,16 @@ export type APIGetParams = {
 	limit?: number
 	page?: number
 }
-
+export type APILogin = {
+	userName: string
+	password: string
+}
+export type APISignUp = {
+	password: string
+	type: string
+	userName: string
+	confirmPassword: string
+}
 export const exportResults = (res: any) => res.data
 
 export const convertParams = (params: { [key: string]: any }) => {
