@@ -1,5 +1,11 @@
-import React from 'react'
+import BaseLayout from '@/layouts/BaseLayout'
 
-export default function Post() {
-	return <div>Post</div>
+import { PostDetail } from '@/components'
+
+export default function PostDetailPage() {
+	return (
+		<BaseLayout>
+			<PostDetail />
+		</BaseLayout>
+	)
 }

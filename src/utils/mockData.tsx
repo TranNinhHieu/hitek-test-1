@@ -46,7 +46,7 @@ export const MenuData: MenuProps['items'] = [
 		key: 'products',
 	},
 	{
-		label: <Link href={ROUTES.BLOGS}>Blogs</Link>,
+		label: <Link href={`${ROUTES.POSTS}?page=1`}>Posts</Link>,
 		key: 'blogs',
 	},
 	{

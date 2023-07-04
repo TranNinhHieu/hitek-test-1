@@ -1,7 +1,10 @@
 import BaseLayout from '@/layouts/BaseLayout'
 // import { userStore } from '@/store/state'
-import { ListData } from '@/utils/mockData'
-import { Col, Divider, List, Row } from 'antd'
+// import { ListData } from '@/utils/mockData'
+// import { Col, Divider, List, Row } from 'antd'
+// import { Grid } from '@mui/material'
+// import { MainPage } from '@/components'
+
 // import { useEffect } from 'react'
 // import { useRecoilValue } from 'recoil'
 // import classes from './style.module.scss'
@@ -13,7 +16,7 @@ export default function Home() {
 	// })
 	return (
 		<BaseLayout>
-			<Row gutter={16}>
+			{/* <Row gutter={16}>
 				<Col className="gutter-row" span={12}>
 					<Divider orientation="left">Default Size</Divider>
 					<List
@@ -24,7 +27,8 @@ export default function Home() {
 						renderItem={(item) => <List.Item>{item}</List.Item>}
 					/>
 				</Col>
-			</Row>
+			</Row> */}
+			{/* <MainPage /> */}
 		</BaseLayout>
 	)
 }

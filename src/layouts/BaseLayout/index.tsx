@@ -3,16 +3,19 @@ import { userStore } from '@/store/state'
 import { BaseLayoutProps } from '@/types/layouts'
 import { MenuData } from '@/utils/mockData'
 // import { ROUTES } from '@/utils/routers'
-import { Breadcrumb, Layout, Menu } from 'antd'
+import { /*Breadcrumb,*/ Layout, Menu } from 'antd'
 // import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import classes from './index.module.scss'
+import { useRouter } from 'next/router'
+import { ROUTES } from '@/utils/routers'
 
 const { Header, Content, Footer } = Layout
 
 export default function BaseLayout({ children }: BaseLayoutProps) {
 	const [menuState, setMenuState] = useState() as any
+	const router = useRouter()
 	const userState = useRecoilValue(userStore)
 	const setUserState = useSetRecoilState(userStore)
 	const renderMenu = MenuData?.filter((item: any) => item.key !== 'login')
@@ -41,6 +44,11 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
 				: MenuData,
 		)
 	}, [userState])
+	if (typeof window !== 'undefined') {
+		if (!userState.id) {
+			router.push(ROUTES.LOGIN)
+		}
+	}
 
 	return (
 		<Layout className={classes.layout} id="layout">
@@ -54,7 +62,7 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
 					items={menuState}
 				/>
 			</Header>
-			<Breadcrumb
+			{/* <Breadcrumb
 				className="breadcrumb"
 				items={[
 					{
@@ -73,11 +81,11 @@ export default function BaseLayout({ children }: BaseLayoutProps) {
 						title: 'App',
 					},
 				]}
-			/>
+			/> */}
 			<Content id="siteLayoutContent">{children}</Content>
 
 			<Footer className={classes.footer}>
-				Ant Design ©2023 Created by Ant UED
+				This is a non-commercial product{' '}
 			</Footer>
 		</Layout>
 	)
