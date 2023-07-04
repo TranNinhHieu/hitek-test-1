@@ -85,7 +85,7 @@ export default function AuthLayout({ children }: BaseLayoutProps) {
 			/>
 			<Content id="siteLayoutContent">{children}</Content>
 			<Footer className={classes.footer}>
-				Ant Design ©2023 Created by Ant UED
+				This is a non-commercial product
 			</Footer>
 		</Layout>
 	) : null
