@@ -9,7 +9,14 @@ const CustomGridData: React.FC<CustomGridDataProps> = ({
 	typeUser,
 }) => {
 	return (
-		<div style={{ height: '700px', width: '100%', margin: '10px' }}>
+		<div
+			style={{
+				height: '700px',
+				width: '100%',
+				margin: '10px',
+				background: 'white',
+			}}
+		>
 			<DataGrid
 				columns={columns({
 					handleShowDetail,

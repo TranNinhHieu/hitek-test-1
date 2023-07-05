@@ -1,13 +1,16 @@
 .loginPage {
 	display: flex;
 	height: 100vh;
+
 	.leftSide,
 	.rightSide {
 		width: 50%;
 	}
+
 	.rightSide {
 		// text-align: center;
 	}
+
 	.leftSide {
 		img {
 			width: 100%;
@@ -15,15 +18,18 @@
 			object-fit: cover;
 		}
 	}
+
 	:global(.ant-layout) {
 		background-color: #fff !important;
 	}
+
 	:global(#login) {
 		background-color: #f4f4f4 !important;
 		padding: 15px;
 		border-radius: 12px;
 		// height: 90vh;
 	}
+
 	:global(.ant-form-item-control-input-content) {
 		text-align: center;
 	}
@@ -31,9 +37,11 @@
 
 .headSide {
 	text-align: center;
+
 	img {
 		width: 120px;
 	}
+
 	h3 {
 		font-weight: 500;
 		font-size: 24px;
@@ -43,11 +51,13 @@
 .rightSide {
 	display: grid;
 	align-content: center;
+
 	label {
 		display: inline-block;
 		margin-bottom: 0.5rem;
 		font-weight: 500;
 	}
+
 	input {
 		display: block;
 		width: 100%;
@@ -62,6 +72,7 @@
 		border: 1px solid #ced4da;
 		border-radius: 0.25rem;
 		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
 		&::placeholder {
 			font-size: 14px;
 		}
@@ -78,6 +89,7 @@
 
 .btnSide {
 	display: grid;
+
 	button {
 		margin: 5px 0;
 		padding: 12px 15px;

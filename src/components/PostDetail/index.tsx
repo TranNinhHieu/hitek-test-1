@@ -8,6 +8,7 @@ import { Post } from '@/types/models/post'
 import { convertMillisecondsToDateTime } from '@/utils/convert'
 import { Stack } from '@mui/material'
 import classes from './style.module.scss'
+import { CustomGoBack } from '../Custom'
 
 function PostDetail() {
 	const router = useRouter()
@@ -21,13 +22,16 @@ function PostDetail() {
 		fetchGetPostById()
 	}, [id])
 	return (
-		<Stack justifyContent="center" alignItems="center" spacing={2}>
-			<img className={classes.image} src={data.image} alt="Image" />
-			<h1>{data.title}</h1>
-			<div style={{ textAlign: 'justify' }}>{data.content}</div>
-			<div>Created at: {convertMillisecondsToDateTime(data.updatedAt)}</div>
-			<div>Updated at: {convertMillisecondsToDateTime(data.updatedAt)}</div>
-		</Stack>
+		<>
+			<CustomGoBack />
+			<Stack justifyContent="center" alignItems="center" spacing={2}>
+				<img className={classes.image} src={data.image} alt="Image" />
+				<h1>{data.title}</h1>
+				<div style={{ textAlign: 'justify' }}>{data.content}</div>
+				<div>Created at: {convertMillisecondsToDateTime(data.updatedAt)}</div>
+				<div>Updated at: {convertMillisecondsToDateTime(data.updatedAt)}</div>
+			</Stack>
+		</>
 	)
 }
 

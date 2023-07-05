@@ -20,6 +20,10 @@
             width: 40%;
             background-image: url('https://firebasestorage.googleapis.com/v0/b/fir-5f468.appspot.com/o/photo-1553095066-5014bc7b7f2d.jpg?alt=media&token=1c761ef8-b985-4f90-9bc1-d1d361b9d97c');
 
+            @media (min-width: 0px) and (max-width: 768px) {
+                display: none;
+            }
+
             .title {
                 font-size: 40px;
                 font-weight: bold;
@@ -41,6 +45,11 @@
             border-bottom-right-radius: 10px;
             color: #002457;
             background-color: white;
+
+            @media (min-width: 0px) and (max-width: 768px) {
+                width: 100%;
+                border-radius: 10px;
+            }
 
             .title {
                 font-size: 40px;

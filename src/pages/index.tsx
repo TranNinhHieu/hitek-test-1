@@ -1,34 +1,27 @@
 import BaseLayout from '@/layouts/BaseLayout'
-// import { userStore } from '@/store/state'
-// import { ListData } from '@/utils/mockData'
-// import { Col, Divider, List, Row } from 'antd'
-// import { Grid } from '@mui/material'
-// import { MainPage } from '@/components'
-
-// import { useEffect } from 'react'
-// import { useRecoilValue } from 'recoil'
-// import classes from './style.module.scss'
-// import axios from 'src/axios'
+import { ROUTES } from '@/utils/routers'
+import { Button, Stack } from '@mui/material'
+import { useRouter } from 'next/router'
 export default function Home() {
-	// const user = useRecoilValue(userStore)
-	// useEffect(() => {
-	// 	console.log(user)
-	// })
+	const router = useRouter()
 	return (
 		<BaseLayout>
-			{/* <Row gutter={16}>
-				<Col className="gutter-row" span={12}>
-					<Divider orientation="left">Default Size</Divider>
-					<List
-						header={<div>Header</div>}
-						footer={<div>Footer</div>}
-						bordered
-						dataSource={ListData}
-						renderItem={(item) => <List.Item>{item}</List.Item>}
-					/>
-				</Col>
-			</Row> */}
-			{/* <MainPage /> */}
+			<Stack spacing={2} alignItems="center">
+				<Button
+					variant="contained"
+					onClick={() => router.push(`${ROUTES.POSTS}?page=1`)}
+					sx={{ width: '200px' }}
+				>
+					Go Post List
+				</Button>
+				<Button
+					variant="contained"
+					onClick={() => router.push(`${ROUTES.CREATEPOSTS}`)}
+					sx={{ width: '200px' }}
+				>
+					Go Create Post
+				</Button>
+			</Stack>
 		</BaseLayout>
 	)
 }

@@ -52,8 +52,7 @@ export const columns = ({
 		field: 'createdAt',
 		headerAlign: 'center',
 		headerName: 'Created At',
-		minWidth: 100,
-		// flex: 1,
+		minWidth: 150,
 		renderCell: (params) => (
 			<div>{convertMillisecondsToDateTime(params.row.createdAt)}</div>
 		),
@@ -62,8 +61,7 @@ export const columns = ({
 		field: 'updatedAt',
 		headerAlign: 'center',
 		headerName: 'Updated At',
-		minWidth: 100,
-		// flex: 1,
+		minWidth: 150,
 		renderCell: (params) => (
 			<div>{convertMillisecondsToDateTime(params.row.updatedAt)}</div>
 		),
@@ -75,40 +73,35 @@ export const columns = ({
 		minWidth: 300,
 		renderCell: (params: GridCellParams) => (
 			<>
-				{typeUser === 'admin' ? (
-					<Stack
-						direction="row"
-						spacing={2}
-						justifyContent="center"
-						width="100%"
+				<Stack direction="row" spacing={2} justifyContent="center" width="100%">
+					<Button
+						variant="contained"
+						color="success"
+						className={classes.customButtonEdit}
+						onClick={() => handleShowDetail(params.row)}
 					>
-						<Button
-							variant="contained"
-							color="success"
-							className={classes.customButtonEdit}
-							onClick={() => handleShowDetail(params.row)}
-						>
-							Detail
-						</Button>
-						<Button
-							variant="contained"
-							className={classes.customButtonUpdate}
-							onClick={() => handleUpdate(params.row)}
-						>
-							Update
-						</Button>
-						<Button
-							color="error"
-							variant="contained"
-							className={classes.customButtonDelete}
-							onClick={() => handleConfirmDelete(params.row.id)}
-						>
-							Delete
-						</Button>
-					</Stack>
-				) : (
-					<div>Only visible to admin</div>
-				)}
+						Detail
+					</Button>
+					{typeUser === 'admin' && (
+						<>
+							<Button
+								variant="contained"
+								className={classes.customButtonUpdate}
+								onClick={() => handleUpdate(params.row)}
+							>
+								Update
+							</Button>
+							<Button
+								color="error"
+								variant="contained"
+								className={classes.customButtonDelete}
+								onClick={() => handleConfirmDelete(params.row.id)}
+							>
+								Delete
+							</Button>
+						</>
+					)}
+				</Stack>
 			</>
 		),
 	},

@@ -85,6 +85,17 @@ function Login() {
 								LOG IN
 							</Button>
 						</form>
+						<br />
+						<div
+							onClick={() => router.push(`${ROUTES.SIGNUP}`)}
+							style={{
+								textAlign: 'center',
+								textDecoration: 'underline',
+								cursor: 'pointer',
+							}}
+						>
+							sign up
+						</div>
 					</Stack>
 				</div>
 			</div>

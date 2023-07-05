@@ -10,6 +10,7 @@ export const ROUTES = {
 	PROFILE: '/profile',
 	SIGNUP: '/signup',
 	POSTS: '/posts',
+	CREATEPOSTS: '/posts/create',
 }
 
 export const USER_API_ROUTES = {
@@ -33,6 +34,7 @@ export const BLOG_API_ROUTES = {
 	DELETE: '/:id',
 }
 export const POST_API_ROUTES = {
-	GET_LIST_BY_PAGE: '/posts?_page',
+	GET_LIST_BY_PAGE: '/posts?',
 	POST_BY_ID: '/posts',
+	CREATEPOSTS: '/posts',
 }

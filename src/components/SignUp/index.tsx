@@ -47,7 +47,7 @@ function SignUp() {
 						Log In
 					</Button>
 				</Stack>
-				<div className={classes.rightContainer}>
+				<Stack className={classes.rightContainer}>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
 						className={classes.formSubmit}
@@ -70,7 +70,7 @@ function SignUp() {
 							<div>Password</div>
 							<input
 								{...register('password', { required: true })}
-								type="text"
+								type="password"
 								className={classes.inputPassword}
 								pattern={CONSTANTS.PATTERN}
 								title={CONSTANTS.TITLE}
@@ -87,7 +87,7 @@ function SignUp() {
 									validate: (value) =>
 										value === password || 'Confirm password does not match',
 								})}
-								type="text"
+								type="password"
 								className={classes.inputConfirmPassword}
 								pattern={CONSTANTS.PATTERN}
 								title={CONSTANTS.TITLE}
@@ -134,7 +134,18 @@ function SignUp() {
 							</Button>
 						</Stack>
 					</form>
-				</div>
+					<div
+						onClick={() => router.push(`${ROUTES.LOGIN}`)}
+						style={{
+							textAlign: 'center',
+							textDecoration: 'underline',
+							marginTop: '10px',
+							cursor: 'pointer',
+						}}
+					>
+						log in
+					</div>
+				</Stack>
 			</div>
 		</div>
 	)
