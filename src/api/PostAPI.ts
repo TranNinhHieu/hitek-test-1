@@ -1,14 +1,12 @@
 import axios from '@/axios'
-// import { APIGetParams, convertParams, exportResults } from '@/utils/api'
+import { APIPost } from '@/utils/api'
+import { convertParamsToQuery } from '@/utils/convert'
 import { POST_API_ROUTES } from '@/utils/routers'
 
-export const getListByPage = async (page: any) => {
+export const getListByPage = async (...params: any[]) => {
+	const query = convertParamsToQuery(params[0])
 	try {
-		const res = await axios.get(
-			`${POST_API_ROUTES.GET_LIST_BY_PAGE}=${Number(
-				page,
-			)}&_limit=10&_sort=createdAt&_order=desc`,
-		)
+		const res = await axios.get(`${POST_API_ROUTES.GET_LIST_BY_PAGE}${query}`)
 		if (res) {
 			return res.data
 		}
@@ -20,7 +18,8 @@ export const getListByPage = async (page: any) => {
 
 export const deletePostById = async (id: any) => {
 	try {
-		await axios.delete(`${POST_API_ROUTES.POST_BY_ID}/${id}`)
+		const res = await axios.delete(`${POST_API_ROUTES.POST_BY_ID}/${id}`)
+		return res
 	} catch (error: any) {
 		console.log(error)
 		throw error
@@ -45,6 +44,16 @@ export const getPostById = async (id: any) => {
 		if (res) {
 			return res.data
 		}
+	} catch (error: any) {
+		console.log(error)
+		throw error
+	}
+}
+
+export const createPost = async (payload: APIPost) => {
+	try {
+		const res = await axios.post(POST_API_ROUTES.CREATEPOSTS, payload)
+		return res
 	} catch (error: any) {
 		console.log(error)
 		throw error

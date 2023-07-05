@@ -6,6 +6,7 @@ import classes from './style.module.scss'
 import { useRouter } from 'next/router'
 import {
 	CustomFormUpdate,
+	CustomGoBack,
 	CustomGridData,
 	CustomPageNation,
 	CustomPopup,
@@ -16,6 +17,7 @@ import { deletePostById } from '@/api/PostAPI'
 import { POST_API_ROUTES } from '@/utils/routers'
 import { userStore } from '@/store/state'
 import { useRecoilValue } from 'recoil'
+import { toast } from 'react-toastify'
 
 function MainPage() {
 	const router = useRouter()
@@ -28,15 +30,29 @@ function MainPage() {
 	const [idSelected, setIdSelected] = useState<any>('')
 	const [item, setItem] = useState<Post>({})
 	const fetchListPostByPage = async () => {
-		const res: ListPost = await getListByPage(page)
+		const res: ListPost = await getListByPage({
+			_page: page,
+			_limited: 50,
+			_sort: 'createdAt',
+			_order: 'desc',
+		})
+
 		const currentData = {
 			...res,
-			data: res?.data.map((item, index) => ({
+			data: res?.data?.map((item, index) => ({
 				...item,
 				no: index + 1,
 			})),
 		}
 		setListPost(currentData)
+	}
+
+	const handleDeletePost = async (idSelected: any) => {
+		const res = await deletePostById(idSelected)
+		await fetchListPostByPage()
+		if (res.status === 200) {
+			toast.success('This post was successfully deleted')
+		}
 	}
 	const handleOnChangePage = (pageChange: number) => {
 		router.push(`?page=${pageChange}`)
@@ -62,14 +78,15 @@ function MainPage() {
 	}, [page])
 	useEffect(() => {
 		if (deletePost === true) {
-			deletePostById(idSelected)
-			fetchListPostByPage()
+			handleDeletePost(idSelected)
 		}
 		setIdSelected('')
 		setDeletePost(false)
 	}, [deletePost])
 	return (
 		<>
+			{' '}
+			<CustomGoBack />
 			{page && (
 				<div style={{ display: 'flex', flexDirection: 'column' }}>
 					<div>

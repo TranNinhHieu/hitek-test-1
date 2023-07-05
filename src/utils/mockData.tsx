@@ -8,50 +8,12 @@ export const MenuData: MenuProps['items'] = [
 		key: 'home',
 	},
 	{
-		label: 'About',
-		key: 'about',
-		children: [
-			{
-				type: 'group',
-				label: 'Item 1',
-				children: [
-					{
-						label: 'Option 1',
-						key: 'setting:1',
-					},
-					{
-						label: 'Option 2',
-						key: 'setting:2',
-					},
-				],
-			},
-			{
-				type: 'group',
-				label: 'Item 2',
-				children: [
-					{
-						label: 'Option 3',
-						key: 'setting:3',
-					},
-					{
-						label: 'Option 4',
-						key: 'setting:4',
-					},
-				],
-			},
-		],
-	},
-	{
-		label: <Link href={ROUTES.PRODUCTS}>Products</Link>,
-		key: 'products',
+		label: <Link href={ROUTES.CREATEPOSTS}>Create Post</Link>,
+		key: 'createPost',
 	},
 	{
 		label: <Link href={`${ROUTES.POSTS}?page=1`}>Posts</Link>,
-		key: 'blogs',
-	},
-	{
-		label: <Link href={ROUTES.CONTACT}>Contact</Link>,
-		key: 'contact',
+		key: 'posts',
 	},
 	{
 		label: <Link href={ROUTES.LOGIN}>Login</Link>,

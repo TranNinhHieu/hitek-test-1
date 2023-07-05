@@ -10,6 +10,20 @@ export const slugify = (str: string) =>
 export const convertMillisecondsToDateTime = (milliseconds: any): string => {
 	if (milliseconds) {
 		const date = moment(milliseconds)
-		return date.format('YYYY/MM/DD')
+		return date.format('YYYY/MM/DD hh:ss')
 	} else return ''
+}
+
+export function convertParamsToQuery(...params: any[]) {
+	const queryString = params
+		.map((param) =>
+			Object.entries(param)
+				.map(
+					([key, value]) =>
+						`${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`,
+				)
+				.join('&'),
+		)
+		.join('&')
+	return queryString
 }

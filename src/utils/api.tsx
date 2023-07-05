@@ -31,3 +31,9 @@ export const convertParams = (params: { [key: string]: any }) => {
 		Object.entries(params).map(([key, value]) => [key, value]),
 	)
 }
+
+export type APIPost = {
+	title: string
+	content: string
+	image: string
+}

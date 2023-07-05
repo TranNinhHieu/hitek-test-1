@@ -1,10 +1,9 @@
 import BaseLayout from '@/layouts/BaseLayout'
-import { MainPage } from '@/components'
-
+import { CreatePost } from '@/components'
 export default function PostPage() {
 	return (
 		<BaseLayout>
-			<MainPage />
+			<CreatePost />
 		</BaseLayout>
 	)
 }

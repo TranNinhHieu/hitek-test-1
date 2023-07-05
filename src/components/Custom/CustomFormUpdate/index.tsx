@@ -52,16 +52,19 @@ export default function CustomFormUpdate({
 							className={classes.inputForm}
 							type="text"
 							value={dataUpdate.title}
+							required
 							onChange={(e) => handleOnChange('title', e.target.value)}
 						/>
 						<div className={classes.label}>Content:</div>
 						<textarea
+							required
 							className={classes.textareaForm}
 							value={dataUpdate.content}
 							onChange={(e) => handleOnChange('content', e.target.value)}
 						></textarea>
 						<div className={classes.label}>Image URL:</div>
 						<input
+							required
 							className={classes.inputForm}
 							type="text"
 							value={dataUpdate.image}

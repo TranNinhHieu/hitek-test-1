@@ -1,0 +1,15 @@
+.wrapper {
+    margin: 10% 20%;
+    border-radius: 10px;
+    box-shadow: 1px 15px 17px 7px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background: white;
+
+    @media (min-width: 0px) and (max-width: 768px) {
+        padding: 10px 0px;
+    }
+
+    .formContainer {
+        width: 80%;
+    }
+}
