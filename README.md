@@ -3,6 +3,17 @@ Starter code for a clean Next.js + TypeScript + ESLint project.
 
 Get started
 
+# Importance
+
+    1. First: install and run json-sever in the github link : https://github.com/TranNinhHieu/json-sever-hitek-test-1
+    2. Second: use file .env in attached email
+
+# Project Description
+
+    1. Feature: Login and sign up. Create, delete, update post. View list and detail post. Responsive.
+    2. Tech: Nextjs, Mui, recoil, typescript, react-hook-form
+    3. Deploy: Vercel hosting, link is attached in email.
+
 # Install dependencies
 
 yarn install
